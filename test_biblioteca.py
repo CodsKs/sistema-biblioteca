@@ -1,11 +1,22 @@
 import unittest
 from dataclasses import FrozenInstanceError
 from datetime import date
+from unittest.mock import patch
 
-from main import Biblioteca, calcular_multa, multa_emprestimo
+from main import Biblioteca, calcular_multa, ler_data, multa_emprestimo
 
 
 class TestBiblioteca(unittest.TestCase):
+    def test_data_no_formato_brasileiro(self):
+        with patch('builtins.input', return_value=' 08/11/2026 '):
+            self.assertEqual(ler_data('Data'), date(2026, 11, 8))
+
+    def test_rejeita_data_invalida_ou_formato_antigo(self):
+        for texto in ['31/02/2026', '2026-11-08', 'abc']:
+            with self.subTest(texto=texto), patch('builtins.input', return_value=texto):
+                with self.assertRaisesRegex(ValueError, 'DD/MM/AAAA'):
+                    ler_data('Data')
+
     def setUp(self):
         self.base = Biblioteca().cadastrar_livro('Dom Casmurro', 'Machado de Assis').cadastrar_usuario('Ana')
         self.inicio = date(2026, 11, 1)

@@ -24,15 +24,15 @@ No Windows, também é possível usar `py main.py`.
 
 Cada livro cadastrado representa um exemplar físico. Exemplares do mesmo título podem ser cadastrados separadamente. Um exemplar admite apenas um empréstimo ativo. O prazo é informado em cada operação, pois o enunciado não define um prazo fixo.
 
-Os dados ficam na memória e são descartados ao encerrar o programa. Todas as datas usam o formato `AAAA-MM-DD`. No relatório, a data de referência calcula as multas dos empréstimos em aberto; as multas de empréstimos devolvidos ficam fixadas na data da devolução. O total agrega esses valores e não representa controle de pagamentos.
+Os dados ficam na memória e são descartados ao encerrar o programa. Todas as datas usam o formato `DD/MM/AAAA`. No relatório, a data de referência calcula as multas dos empréstimos em aberto; as multas de empréstimos devolvidos ficam fixadas na data da devolução. O total agrega esses valores e não representa controle de pagamentos.
 
 ## Exemplo de uso
 
 1. Na opção 1, cadastre `Dom Casmurro`, de `Machado de Assis` (livro 1).
 2. Na opção 2, cadastre `Ana` (usuário 1).
-3. Na opção 4, informe usuário 1, livro 1, início `2026-11-01` e prazo `2026-11-08`.
+3. Na opção 4, informe usuário 1, livro 1, início `01/11/2026` e prazo `08/11/2026`.
 4. Na opção 3, o livro aparecerá como emprestado.
-5. Na opção 5, devolva o empréstimo 1 em `2026-11-11`.
+5. Na opção 5, devolva o empréstimo 1 em `11/11/2026`.
 6. O sistema informa multa de `R$ 6,00` e disponibiliza o livro novamente.
 
 ## Requisitos de programação

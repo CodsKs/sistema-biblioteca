@@ -1,5 +1,5 @@
 from dataclasses import dataclass, replace
-from datetime import date
+from datetime import date, datetime
 from functools import reduce
 
 
@@ -95,7 +95,11 @@ def formatar_reais(valor):
 
 
 def ler_data(mensagem: str) -> date:
-    return date.fromisoformat(input(mensagem + ' (AAAA-MM-DD): ').strip())
+    texto = input(mensagem + ' (DD/MM/AAAA): ').strip()
+    try:
+        return datetime.strptime(texto, '%d/%m/%Y').date()
+    except ValueError:
+        raise ValueError('Data inválida. Use DD/MM/AAAA, por exemplo 18/11/2026.') from None
 
 
 def executar() -> None:
