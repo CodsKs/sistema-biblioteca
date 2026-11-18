@@ -61,7 +61,6 @@ Os testes cobrem cadastro, imutabilidade, disponibilidade, empréstimos duplicad
 - `biblioteca.py`: modelos e regras de negócio.
 - `main.py`: interface de terminal.
 - `test_biblioteca.py`: testes automatizados.
-- `ENTREGA_INDIVIDUAL.md`: sugestão dos dois diagramas e das cinco respostas para copiar à mão.
 
 ## Entrega
 
