@@ -1,9 +1,8 @@
 import unittest
 from dataclasses import FrozenInstanceError
 from datetime import date
-from decimal import Decimal
 
-from biblioteca import Biblioteca, calcular_multa, multa_emprestimo
+from main import Biblioteca, calcular_multa, multa_emprestimo
 
 
 class TestBiblioteca(unittest.TestCase):
@@ -72,13 +71,13 @@ class TestBiblioteca(unittest.TestCase):
             devolvida.emprestar(1, 1, self.inicio, self.prazo)
 
     def test_multas_antes_no_prazo_e_atrasada(self):
-        for referencia, esperado in [(date(2026, 11, 7), '0.00'), (self.prazo, '0.00'), (date(2026, 11, 9), '2.00'), (date(2026, 11, 11), '6.00')]:
+        for referencia, esperado in [(date(2026, 11, 7), 0), (self.prazo, 0), (date(2026, 11, 9), 2), (date(2026, 11, 11), 6)]:
             with self.subTest(referencia=referencia):
-                self.assertEqual(calcular_multa(self.prazo, referencia), Decimal(esperado))
+                self.assertEqual(calcular_multa(self.prazo, referencia), esperado)
 
     def test_multa_para_de_crescer_apos_devolucao(self):
         devolvida = self.ativa.devolver(1, date(2026, 11, 11))
-        self.assertEqual(multa_emprestimo(devolvida.emprestimos[0], date(2026, 12, 1)), Decimal('6.00'))
+        self.assertEqual(multa_emprestimo(devolvida.emprestimos[0], date(2026, 12, 1)), 6)
 
     def test_map_filter_selecionam_disponiveis(self):
         biblioteca = self.ativa.cadastrar_livro('O Cortiço', 'Aluísio Azevedo')
@@ -89,8 +88,8 @@ class TestBiblioteca(unittest.TestCase):
         biblioteca = self.ativa.devolver(1, date(2026, 11, 9))
         biblioteca = biblioteca.cadastrar_livro('O Cortiço', 'Aluísio Azevedo')
         biblioteca = biblioteca.emprestar(1, 2, self.inicio, self.prazo)
-        self.assertEqual(biblioteca.total_multas(date(2026, 11, 11)), Decimal('8.00'))
-        self.assertEqual(Biblioteca().total_multas(self.prazo), Decimal('0.00'))
+        self.assertEqual(biblioteca.total_multas(date(2026, 11, 11)), 8)
+        self.assertEqual(Biblioteca().total_multas(self.prazo), 0)
 
 
 if __name__ == '__main__':

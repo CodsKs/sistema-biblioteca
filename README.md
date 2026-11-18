@@ -1,6 +1,6 @@
 # Sistema de Biblioteca
 
-Projeto acadêmico em Python com interface de terminal, orientação a objetos e programação funcional. Não utiliza banco de dados nem dependências externas. O código Python não contém comentários.
+Projeto acadêmico em Python com todo o sistema em um único arquivo `main.py`, interface de terminal, orientação a objetos e programação funcional. Não utiliza banco de dados nem dependências externas. O código Python não contém comentários.
 
 ## Executar
 
@@ -44,9 +44,9 @@ Os dados ficam na memória e são descartados ao encerrar o programa. Todas as d
 | Imutabilidade | dataclasses congeladas, coleções em tuplas e novas instâncias produzidas com replace |
 | map | Transformação de livros em títulos e substituição imutável de um empréstimo devolvido |
 | filter | Seleção dos livros disponíveis |
-| reduce | Soma das multas com Decimal |
+| reduce | Soma das multas |
 
-As operações de cadastro, empréstimo e devolução retornam uma nova Biblioteca. O terminal atribui esse resultado à variável local, preservando as instâncias anteriores. Os cálculos monetários usam Decimal para manter precisão decimal.
+As operações de cadastro, empréstimo e devolução retornam uma nova Biblioteca. O terminal atribui esse resultado à variável local, preservando as instâncias anteriores. Como a multa é sempre um múltiplo de R$ 2,00, os cálculos usam números inteiros em reais.
 
 ## Testes
 
@@ -58,8 +58,7 @@ Os testes cobrem cadastro, imutabilidade, disponibilidade, empréstimos duplicad
 
 ## Arquivos
 
-- `biblioteca.py`: modelos e regras de negócio.
-- `main.py`: interface de terminal.
+- `main.py`: sistema completo, com classes, regras de negócio e menu de terminal.
 - `test_biblioteca.py`: testes automatizados.
 
 ## Entrega
