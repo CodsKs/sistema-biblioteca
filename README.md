@@ -67,9 +67,8 @@ Os testes cobrem cadastro, imutabilidade, disponibilidade, empréstimos duplicad
 
 Grupo de até quatro alunos. Preencha os nomes dos integrantes abaixo antes da entrega:
 
-- Integrante 1:
-- Integrante 2:
-- Integrante 3:
-- Integrante 4:
+- Integrante 1: Luís Eduardo Freire Linhares        
+- Integrante 2: Pedro Henrique Mendes Albuquerque 
 
-A entrega coletiva inclui o repositório, este README e os testes. A entrega individual deve ser escrita à mão em papel A4 branco e entregue fisicamente ao professor em sala de aula. Confirme com o professor os tipos de diagramas e as perguntas exigidas, caso tenham sido definidos separadamente.
+
+
